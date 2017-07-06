@@ -2,7 +2,7 @@ node-red-contrib-securedhttp-multipart
 =========================
 [Node-RED](http://nodered.org) nodes is extended from httpmultipart 
 (<a target="_blank" href="https://github.com/sax1johno/node-red-contrib-http-multipart">
-    https://github.com/sax1johno/node-red-contrib-http-multipart</a>) but with built-in security.  If 
+    node-red-contrib-http-multipart</a>) but with built-in security.  If 
 secured field is set to false, it has the same features as httpmultipart
 in the default installation.  It uses a predefined OAuth endpoint 
 to validate the token in authorization header or query string in a request and to check 
@@ -40,8 +40,8 @@ token is valid if this field is set to non-empty string.  Multiple
 privileges can be specified with comma delimiters but user will need to
 have one of thoese specified privilege to access this endpoint.
 
-Please refer to <a target="_blank" href="https://github.com/TradeRocket-Engineering/node-red-contrib-securedhttp-multipart">
-    https://github.com/TradeRocket-Engineering/node-red-contrib-securedhttp-multipart</a> for helps.
+Please refer to <a target="_blank" href="https://flows.nodered.org/node/node-red-contrib-http-multipart">
+    node-red-contrib-http-multipart</a> for helps.
 
 
 Authors
