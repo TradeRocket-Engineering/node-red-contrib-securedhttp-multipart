@@ -1,0 +1,113 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "node-red-contrib-http-multipart",
+        "scope": null,
+        "escapedName": "node-red-contrib-http-multipart",
+        "name": "node-red-contrib-http-multipart",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/kchen/.node-red"
+    ]
+  ],
+  "_from": "node-red-contrib-http-multipart@latest",
+  "_id": "node-red-contrib-http-multipart@0.2.0",
+  "_inCache": true,
+  "_location": "/node-red-contrib-http-multipart",
+  "_nodeVersion": "4.4.1",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/node-red-contrib-http-multipart-0.2.0.tgz_1473553658330_0.02895789360627532"
+  },
+  "_npmUser": {
+    "name": "sax1johno",
+    "email": "sax1johno@gmail.com"
+  },
+  "_npmVersion": "3.10.6",
+  "_phantomChildren": {
+    "content-type": "1.0.2",
+    "debug": "2.6.1",
+    "depd": "1.1.0",
+    "on-finished": "2.3.0",
+    "setprototypeof": "1.0.3",
+    "statuses": "1.3.1",
+    "type-is": "1.6.14",
+    "unpipe": "1.0.0",
+    "vary": "1.1.0"
+  },
+  "_requested": {
+    "raw": "node-red-contrib-http-multipart",
+    "scope": null,
+    "escapedName": "node-red-contrib-http-multipart",
+    "name": "node-red-contrib-http-multipart",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/node-red-contrib-http-multipart/-/node-red-contrib-http-multipart-0.2.0.tgz",
+  "_shasum": "b62935a89e83e5b14610668456d6d74b3c01cfd1",
+  "_shrinkwrap": null,
+  "_spec": "node-red-contrib-http-multipart",
+  "_where": "/Users/kchen/.node-red",
+  "author": {
+    "name": "John O'Connor",
+    "url": "sax1johno@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/sax1johno/node-red-contrib-http-multipart/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-busboy": "0.0.2",
+    "cors": "^2.8.1",
+    "formidable": "^1.0.17",
+    "is-utf8": "^0.2.1",
+    "media-typer": "^0.3.0",
+    "multer": "^1.2.0",
+    "on-headers": "^1.0.1",
+    "raw-body": "^2.1.7"
+  },
+  "description": "A node-red node for providing multi-part form support for the standard node-red HTTP node.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "b62935a89e83e5b14610668456d6d74b3c01cfd1",
+    "tarball": "https://registry.npmjs.org/node-red-contrib-http-multipart/-/node-red-contrib-http-multipart-0.2.0.tgz"
+  },
+  "gitHead": "d51d614e7420e7279fe18f70a784debf0ec5e408",
+  "homepage": "https://github.com/sax1johno/node-red-contrib-http-multipart#readme",
+  "keywords": [
+    "node-red",
+    "flow",
+    "http",
+    "express",
+    "multi-part"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "sax1johno",
+      "email": "sax1johno@gmail.com"
+    }
+  ],
+  "name": "node-red-contrib-http-multipart",
+  "node-red": {
+    "nodes": {
+      "httpInMultipart": "httpInMultipart.js"
+    }
+  },
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sax1johno/node-red-contrib-http-multipart.git"
+  },
+  "scripts": {},
+  "version": "0.2.0"
+}
