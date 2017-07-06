@@ -358,5 +358,5 @@ module.exports = function(RED) {
             this.warn(RED._("httpInMultipart.errors.not-created"));
         }
     }
-    RED.nodes.registerType("securedHttpInMultipart",HTTPIn);
+    RED.nodes.registerType("secured httpInMultipart",HTTPIn);
 }
