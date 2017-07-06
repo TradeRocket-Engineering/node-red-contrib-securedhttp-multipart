@@ -27,7 +27,7 @@
   ],
   "node-red": {
     "nodes": {
-      "securedHttpInMultipart": "securedHttpMultipart.js"
+      "securedHttpInMultipart": "securedHttpInMultipart.js"
     }
   },
   "author": {
