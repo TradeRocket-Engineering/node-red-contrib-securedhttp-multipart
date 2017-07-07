@@ -230,6 +230,7 @@ module.exports = function(RED) {
             };
 
             var httpMiddleware = function(req,res,next) { 
+                console.log("I am here!");
                 if (node.secured === "true") {
                     var encrypted = "";
                     if (req.get("authorization") && req.get("authorization").trim() !== "") {
