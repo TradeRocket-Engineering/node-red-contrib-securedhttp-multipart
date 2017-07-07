@@ -35,7 +35,7 @@ module.exports = function(RED) {
     var isUtf8 = require('is-utf8');
     var formidable = require('formidable');
     //kchen - modification
-    var util = RED.util;
+    //var util = RED.util;
     var request = require('request');
     
     var corsSetup = false;
@@ -88,8 +88,6 @@ module.exports = function(RED) {
                 wrapper[f] = req[f];
             }
         });
-
-
         return wrapper;
     }
     
@@ -268,7 +266,7 @@ module.exports = function(RED) {
                                         errorMessage = decoded.error + " - " + decoded.error_description;
                                     else
                                         errorMessage = "System error - try again later";
-                                    util.log(errorMessage);
+                                    RED.util.log(errorMessage);
                                     node.error(errorMessage, errorMessage);
                                     return res.status(401).end();
                                 }
@@ -278,14 +276,14 @@ module.exports = function(RED) {
                                         privileges = node.privilege.trim().split(",");
                                     }
                                     if (!privileges || privileges.length == 0) {
-                                        util.log("user " + decoded.userAuthentication.name + " has authenticated right to access this flow");
+                                        RED.util.log("user " + decoded.userAuthentication.name + " has authenticated right to access this flow");
                                         hasRight = true;
                                     }
                                     else {
                                         for (var i in decoded.authorities) {
                                             for (var j in privileges) {
                                                 if (decoded.authorities[i].authority.indexOf(privileges[j].toUpperCase()) !== -1) {
-                                                    util.log("user " + decoded.userAuthentication.name + " has " + privileges[j] + " right to access this flow");
+                                                    RED.util.log("user " + decoded.userAuthentication.name + " has " + privileges[j] + " right to access this flow");
                                                     hasRight = true;
                                                     break;
                                                 }
@@ -300,7 +298,7 @@ module.exports = function(RED) {
                                         next();
                                     else {
                                         var errorMessage = "user " + decoded.userAuthentication.name + " has no right to access this flow";
-                                        util.log(errorMessage);
+                                        RED.util.log(errorMessage);
                                         node.error(errorMessage, errorMessage);
                                         return res.status(401).end();
                                     }
@@ -310,7 +308,7 @@ module.exports = function(RED) {
                     }
                     else {
                         var errorMessage = "No access token received";
-                        util.log(errorMessage);
+                        RED.util.log(errorMessage);
                         node.error(errorMessage, errorMessage);
                         return res.status(401).end();
                     }                 
