@@ -34,6 +34,9 @@ module.exports = function(RED) {
     });
     var isUtf8 = require('is-utf8');
     var formidable = require('formidable');
+    //kchen - modification
+    var util = require("util");
+    var request = require('request');
     
     var corsSetup = false;
 

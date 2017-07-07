@@ -11,7 +11,8 @@
     "media-typer": "^0.3.0",
     "multer": "^1.2.0",
     "on-headers": "^1.0.1",
-    "raw-body": "^2.1.7"
+    "raw-body": "^2.1.7",
+    "request": "^2.81.0"
   },
   "repository": {
     "type": "git",
