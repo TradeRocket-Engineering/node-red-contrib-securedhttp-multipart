@@ -35,7 +35,6 @@ module.exports = function(RED) {
     var isUtf8 = require('is-utf8');
     var formidable = require('formidable');
     //kchen - modification
-    //var util = RED.util;
     var request = require('request');
     
     var corsSetup = false;
@@ -244,7 +243,6 @@ module.exports = function(RED) {
                     if (encrypted && encrypted.trim() !== "") {
                         if (encrypted.substring(0, 7).trim().toLowerCase() === "bearer")
                             encrypted = encrypted.substring(7);
-                        //util.debug(encrypted.substring(7));
                         request({
                             url: RED.settings.oauth2UserUrl,
                             auth: {
@@ -267,7 +265,7 @@ module.exports = function(RED) {
                                         errorMessage = decoded.error + " - " + decoded.error_description;
                                     else
                                         errorMessage = "System error - try again later";
-                                    RED.util.log(errorMessage);
+                                    console.log(errorMessage);
                                     node.error(errorMessage, errorMessage);
                                     return res.status(401).end();
                                 }
@@ -277,14 +275,14 @@ module.exports = function(RED) {
                                         privileges = node.privilege.trim().split(",");
                                     }
                                     if (!privileges || privileges.length == 0) {
-                                        RED.util.log("user " + decoded.userAuthentication.name + " has authenticated right to access this flow");
+                                        console.log("user " + decoded.userAuthentication.name + " has authenticated right to access this flow");
                                         hasRight = true;
                                     }
                                     else {
                                         for (var i in decoded.authorities) {
                                             for (var j in privileges) {
                                                 if (decoded.authorities[i].authority.indexOf(privileges[j].toUpperCase()) !== -1) {
-                                                    RED.util.log("user " + decoded.userAuthentication.name + " has " + privileges[j] + " right to access this flow");
+                                                    console.log("user " + decoded.userAuthentication.name + " has " + privileges[j] + " right to access this flow");
                                                     hasRight = true;
                                                     break;
                                                 }
@@ -295,11 +293,13 @@ module.exports = function(RED) {
                                     }
                                     // kchen - modification 7/6/2017
                                     node.userDetails.name = node.userDetails.email = decoded.userAuthentication.name;
+                                    node.userDetails.authorities = decoded.authorities;
+                                    node.userDetails.token = encrypted;
                                     if (hasRight)         
                                         next();
                                     else {
                                         var errorMessage = "user " + decoded.userAuthentication.name + " has no right to access this flow";
-                                        RED.util.log(errorMessage);
+                                        console.log(errorMessage);
                                         node.error(errorMessage, errorMessage);
                                         return res.status(401).end();
                                     }
@@ -309,7 +309,7 @@ module.exports = function(RED) {
                     }
                     else {
                         var errorMessage = "No access token received";
-                        RED.util.log(errorMessage);
+                        console.log(errorMessage);
                         node.error(errorMessage, errorMessage);
                         return res.status(401).end();
                     }                 
