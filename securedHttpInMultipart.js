@@ -35,6 +35,7 @@ module.exports = function(RED) {
     var isUtf8 = require('is-utf8');
     var formidable = require('formidable');
     //kchen - modification
+    //var util = RED.util;
     var request = require('request');
     
     var corsSetup = false;
@@ -87,6 +88,8 @@ module.exports = function(RED) {
                 wrapper[f] = req[f];
             }
         });
+
+
         return wrapper;
     }
     
@@ -229,7 +232,6 @@ module.exports = function(RED) {
             };
 
             var httpMiddleware = function(req,res,next) { 
-                console.log("I am here!");
                 if (node.secured === "true") {
                     var encrypted = "";
                     if (req.get("authorization") && req.get("authorization").trim() !== "") {
@@ -243,6 +245,7 @@ module.exports = function(RED) {
                     if (encrypted && encrypted.trim() !== "") {
                         if (encrypted.substring(0, 7).trim().toLowerCase() === "bearer")
                             encrypted = encrypted.substring(7);
+                        //util.debug(encrypted.substring(7));
                         request({
                             url: RED.settings.oauth2UserUrl,
                             auth: {
@@ -294,7 +297,6 @@ module.exports = function(RED) {
                                     // kchen - modification 7/6/2017
                                     node.userDetails.name = node.userDetails.email = decoded.userAuthentication.name;
                                     node.userDetails.authorities = decoded.authorities;
-                                    node.userDetails.token = encrypted;
                                     if (hasRight)         
                                         next();
                                     else {
@@ -360,5 +362,5 @@ module.exports = function(RED) {
             this.warn(RED._("httpInMultipart.errors.not-created"));
         }
     }
-    RED.nodes.registerType("secured httpInMultipart",HTTPIn);
+    RED.nodes.registerType("secured HttpInMultipart",HTTPIn);
 }
