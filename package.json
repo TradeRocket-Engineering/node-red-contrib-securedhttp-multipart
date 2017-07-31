@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-securedhttp-multipart",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Node-RED node to create secured http multipart endpoint",
   "dependencies": {
     "body-parser": "^1.15.2",
